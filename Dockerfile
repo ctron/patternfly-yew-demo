@@ -5,10 +5,11 @@ COPY . /usr/src/project
 
 WORKDIR /usr/src/project
 
+#     --mount=type=cache,target=/opt/rust/registry,z \
+#     --mount=type=cache,target=/opt/rust/git,z \
+#     --mount=type=cache,target=/usr/src/project/target,z \
+
 RUN \
-    --mount=type=cache,target=/opt/rust/registry,z \
-    --mount=type=cache,target=/opt/rust/git,z \
-    --mount=type=cache,target=/usr/src/project/target,z \
     true \
     && npm install \
     && rm rust-toolchain.toml \
